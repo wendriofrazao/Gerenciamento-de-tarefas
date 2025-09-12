@@ -16,6 +16,40 @@ O objetivo é oferecer um CRUD completo para organização de atividades, permit
 - Banco de dados MySQL
 - Handlebars (para renderização de views)
 
+## 📂 Estrutura do Projeto
+```bash
+📦 projeto-tarefas
+┣ 📂 src
+┃ ┣ 📂 database # Conexão com o banco de dados
+┃ ┃ ┣ db.js
+┃ ┣ 📂 models # Modelos do banco de dados
+┃ ┃ ┣ task.js
+┃ ┣ 📂 controllers # Lógica de controle
+┃ ┃ ┣ taskController.js
+┃ ┣ 📂 public #
+┃ ┃ ┣ 📂 css
+┃ ┃ ┃  ┣ home.css
+┃ ┃ ┃  ┣ createTask.css
+┃ ┃ ┃  ┣ editationForm.css
+┃ ┃ ┃  ┣ showTasks.css
+┃ ┃ ┃  ┣ style.css # estilo global
+┃ ┣ 📂 routes # Rotas da aplicação
+┃ ┃ ┣ taskRouters.js
+┃ ┣ 📂 views # Templates (caso use Handlebars/EJS)
+┃ ┃ ┣ 📂 layoyts
+┃ ┃ ┃  ┣ main.handlebars
+┃ ┃ ┣ 📂 tasks
+┃ ┃ ┃  ┣ createTask.handlebars
+┃ ┃ ┃  ┣ showTasks.handlebars
+┃ ┃ ┃  ┣ editationTask.handlebars
+┃ ┃ ┃  ┣ completedTask.handlebars
+┃ ┃ ┃  ┣ pedingTask.handlebars
+┃ ┃ ┣ home.handlebars
+┃ ┗ 📜 app.js # Arquivo principal
+┣ 📜 package.json
+┣ 📜 .gitignore
+┗ 📜 README.md
+```
 ## ⚙️ Como executar
 ```bash
 # Clone o repositório
