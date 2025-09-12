@@ -2,9 +2,11 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const routers = require('./routers/tasksRouters.js');
 const sequelize = require('./database/db.js');
+const dotenv = require('dotenv');
 const path = require('path');
-// const { engine } = require("express-handlebars");
 // const Task = require('./models/task.js');
+
+dotenv.config();
 
 const app = express();
 
@@ -29,12 +31,11 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/', routers);
 
-const port = 3000;
 sequelize
   .sync() // ou .sync({ force: true })
   .then(() => {
-    app.listen(port, () => {
-      console.log(`Servidor rodando com sucesso! http://localhost:${port}`);
+    app.listen(process.env.PORT, () => {
+      console.log(`Servidor rodando com sucesso! http://localhost:${process.env.PORT}`);
     });
   })
   .catch((error) => {
