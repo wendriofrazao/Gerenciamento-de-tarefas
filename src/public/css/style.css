@@ -1,0 +1,208 @@
+:root{
+      --bg: #0f172a;          /* slate-900 */
+      --panel: #0b1224;       /* slightly darker panel */
+      --card: #111b34;        /* slate-800-ish */
+      --text: #e5e7eb;        /* gray-200 */
+      --muted: #a8b1c7;       /* slate-300 */
+      --brand: #7c3aed;       /* violet-600 */
+      --brand-2: #06b6d4;     /* cyan-500 */
+      --accent: #22c55e;      /* green-500 */
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(0,0,0,.35);
+      --ring: 0 0 0 2px color-mix(in oklab, var(--brand) 40%, transparent);
+    }
+
+    /* Resetzinho */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html,body {
+      margin: 0;
+      font: 500 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--text);
+      background: rgb(41, 41, 74);
+      width: 100vw;
+      height: 100vh;
+      min-height: 100vh;
+      display: grid;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    /* HEADER */
+    header.app-header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+      background: color-mix(in oklab, var(--panel) 82%, transparent);
+      border: 1px solid color-mix(in oklab, var(--brand) 20%, rgba(255,255,255,.06));
+      border-top: none;
+      border-radius: 10px;
+      border-left: none;
+      border-right: none;
+      padding: 15px;
+      margin-bottom: 1%;
+    }
+
+    .header-inner{
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background:
+        linear-gradient(135deg, color-mix(in oklab, var(--brand) 60%, #000 0%), color-mix(in oklab, var(--brand-2) 55%, #000 0%));
+      box-shadow: var(--shadow);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .brand .logo{
+      width: 28px; height: 28px; border-radius: 8px;
+      background:
+        conic-gradient(from 210deg at 60% 40%, var(--brand), var(--brand-2), var(--brand));
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.18), 0 4px 12px rgba(0,0,0,.35);
+    }
+    .brand span{ font-size: 15px; }
+
+    .header-actions{
+      display: flex;
+      align-items: center;
+      margin-top: -15px;
+      gap: 8px;
+      width: 15vw;
+      height: 80%;
+      justify-self: end;
+      /* background-color: #ce7474; */
+      /* background-color: var(--muted); */
+    }
+    .header-actions a {
+        text-decoration: none;
+    }
+    .btn{
+      /* appearance: none; */
+      border: 1px solid rgba(255,255,255,.12);
+      background: color-mix(in oklab, var(--card) 86%, transparent);
+      color: var(--text);
+      padding: 9px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .6em;
+      width: 30%;
+      transition: transform .08s ease, .2s ease, border-color .2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); }
+    .btn:active{ transform: translateY(0); }
+    .btn-primary{
+      width: 70%;
+      background:
+        linear-gradient(180deg, color-mix(in oklab, var(--brand) 22%, #1b1b3b), color-mix(in oklab, var(--brand) 12%, #0d0d1a));
+      border-color: color-mix(in oklab, var(--brand) 35%, rgba(255,255,255,.08));
+      box-shadow: 0 6px 20px color-mix(in oklab, var(--brand) 30%, transparent);
+    }
+    .link {
+        width: 70%;
+        /* background-color: #06b6d4; */
+        display: flex;
+        justify-content: center;
+    }
+    .btn-quiet{
+      /* background: transparent; */
+      width: 35%;
+      text-align: center;
+      border-color: rgba(255,255,255,.14);
+    }
+
+    /* Barra de “filtros” (decorativa, sem JS) */
+    .filters{
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px;
+      border-radius: 999px;
+      background: color-mix(in oklab, var(--card) 80%, transparent);
+      justify-self: center;
+    }
+    .filters a {
+        text-decoration: none;
+    }
+    .chip{
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.03);
+        color: var(--muted);
+        font-size: 13px;
+        user-select: none;
+        cursor: pointer;
+    }
+    .active{
+      color: white;
+      border-color: color-mix(in oklab, var(--brand) 40%, rgba(255,255,255,.14));
+      box-shadow: var(--ring);
+    }
+
+    /* FOOTER */
+    .app-footer {
+  width: 100%;
+  margin-top: auto; /* empurra para o fim */
+  backdrop-filter: blur(8px);
+  background: color-mix(in oklab, var(--panel) 86%, transparent);
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 10px 25px;
+  border-radius: 10px 10px 0 0;
+  position: relative; /* tira o sticky */
+}
+
+    .footer-inner{
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+    }
+    .stats{
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .credits{
+      justify-self: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .footer-actions{
+      justify-self: end;
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 720px){
+      .header-inner{
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "brand actions"
+          "filters filters";
+      }
+      .brand{ grid-area: brand; }
+      .header-actions{ grid-area: actions; }
+      .filters{ grid-area: filters; justify-self: stretch; overflow-x: auto; }
+      .footer-inner{
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 8px;
+      }
+      .footer-actions{ justify-self: center; }
+    }
+    
+     
