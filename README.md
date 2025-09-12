@@ -13,7 +13,7 @@ O objetivo é oferecer um CRUD completo para organização de atividades, permit
 ## 🛠️ Tecnologias
 - Node.js + Express
 - Sequelize (ORM)
-- Banco de dados MySQL/PostgreSQL/SQLite
+- Banco de dados MySQL
 - Handlebars (para renderização de views)
 
 ## ⚙️ Como executar
