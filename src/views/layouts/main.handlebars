@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/createTask.css">
+    <link rel="stylesheet" href="/css/error/erro.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/showTasks.css">
+    <link rel="stylesheet" href="/css/editationForm.css">
+    <title>Minha Tarefa</title>
+</head>
+<body>
+
+<!-- header -->
+    <header class="app-header" role="banner">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Página inicial">
+          <span class="logo" aria-hidden="true"></span>
+          <span>My Task</span>
+        </a>
+
+        <div class="filters" aria-label="Filtros">
+          <a href="/" class="chip">Home</a>
+          <a href="/task/showTasks" class="chip">Tarefas</a>
+          <a href="/task/pendingTasks" class="chip">Pendentes</a>
+          <a href="/task/completedTasks" class="chip">Concluídas</a>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-quiet" type="button" aria-label="Alternar tema">Tema</button>
+          <a href="/task/create" class="link">
+          <button class="btn btn-primary" type="button" aria-label="Adicionar tarefa">+ Nova tarefa</button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    {{{body}}}
+
+ <!-- footer -->
+    <footer class="app-footer" >
+      <div class="footer-inner">
+        <div class="stats" aria-live="polite">
+          <span class="tarefa" id="tasks">0</span> tarefas • <span class="concluida">0</span> concluídas
+        </div>
+        <div class="credits">
+          &copy; 2025 Minha Biblioteca • Desenvolvido por Wendrio
+        </div>
+      </div>
+    </footer>
+
+
+<script>
+let filters = document.querySelectorAll('.chip');
+
+
+const task = document.getElementById('tasks');
+const buttonSubmit = document.getElementById('submitTask');
+const buttonDelete = document.getElementById('idDelete');
+
+let count = parseInt(localStorage.getItem("tasks")) || 0;
+
+if (task) {
+  task.innerText = count;
+}
+
+if (buttonDelete) {
+  buttonDelete.addEventListener("click", () => {
+    if (count > 0) { 
+      count--;
+      localStorage.setItem("tasks", count);
+    }
+  });
+}
+
+if (buttonSubmit) {
+  buttonSubmit.addEventListener("click", () => {
+    count++;
+    localStorage.setItem("tasks", count);
+  });
+}
+
+
+
+filters.forEach(filter => {
+     let filters = document.querySelectorAll('.chip');
+
+  filters.forEach(filter => {
+    filter.addEventListener("click", (event) => {
+      filters.forEach(f => f.classList.remove("active")); 
+      filter.classList.add("active"); 
+    });
+  });
+});
+
+</script>
+</body>
+</html>

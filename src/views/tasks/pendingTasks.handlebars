@@ -1,0 +1,35 @@
+<h1>Tarefas pendentes</h1>
+
+<div class="tasks-container">
+  {{#each pending}}
+    <div class="task-card">
+      <h2 class="task-title">{{title}}</h2>
+      <p class="task-desc">{{description}}</p>
+
+      <div class="task-meta">
+        <span class="priority {{priority}}">{{priority}}</span>
+        <span class="category">{{category}}</span>
+        <span class="tags">#{{tags}}</span>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress" style="width: {{progress}}%"></div>
+      </div>
+
+      <div class="status">
+        <label>
+          {{#if done}} Concluída {{else}} Não Concluída {{/if}}
+        </label>
+      </div>
+
+      <div class="actions">
+        <a href="/task/editationTask/{{id}}">
+        <button class="edit">Editar</button>
+        </a>
+        <a href="/task/deleteTask/{{id}}" id="idDelete">
+          <button class="delete" type="button">Excluir</button>
+        </a>
+      </div>
+    </div>
+  {{/each}}
+</div>
