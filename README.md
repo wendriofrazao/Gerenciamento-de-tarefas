@@ -53,7 +53,7 @@ O objetivo é oferecer um CRUD completo para organização de atividades, permit
 ## ⚙️ Como executar
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/projeto-tarefas.git
+git clone https://github.com/wendriofrazao/Gerenciamento-de-tarefas.git
 
 # Acesse a pasta
 cd projeto-tarefas
