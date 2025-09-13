@@ -56,7 +56,7 @@ O objetivo é oferecer um CRUD completo para organização de atividades, permit
 git clone https://github.com/wendriofrazao/Gerenciamento-de-tarefas.git
 
 # Acesse a pasta
-cd projeto-tarefas
+cd Gerenciamento-de-tarefas
 
 # Instale as dependências
 npm install
