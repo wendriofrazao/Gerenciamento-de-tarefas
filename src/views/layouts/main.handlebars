@@ -55,33 +55,34 @@
 <script>
 let filters = document.querySelectorAll('.chip');
 
-
-const task = document.getElementById('tasks');
+const taskCounter = document.getElementById('tasks');
 const buttonSubmit = document.getElementById('submitTask');
-const buttonDelete = document.getElementById('idDelete');
+const deleteLinks = document.querySelectorAll('.idDelete');
 
 let count = parseInt(localStorage.getItem("tasks")) || 0;
 
-if (task) {
-  task.innerText = count;
+function updateCounter() {
+  taskCounter.innerText = count;
+  localStorage.setItem("tasks", count);
 }
 
-if (buttonDelete) {
-  buttonDelete.addEventListener("click", () => {
-    if (count > 0) { 
-      count--;
-      localStorage.setItem("tasks", count);
-    }
-  });
-}
+updateCounter();
 
 if (buttonSubmit) {
   buttonSubmit.addEventListener("click", () => {
     count++;
-    localStorage.setItem("tasks", count);
+    updateCounter();
   });
 }
 
+deleteLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    if (count > 0) {
+      count--;
+      updateCounter();
+    }
+  });
+});
 
 
 filters.forEach(filter => {
