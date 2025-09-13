@@ -1,4 +1,3 @@
-const { where } = require('sequelize');
 const Task = require('../models/task.js');
 
 class Tasks {

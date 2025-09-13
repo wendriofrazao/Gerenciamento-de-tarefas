@@ -2,9 +2,10 @@
   "name": "gerenciamento-de-tarefas",
   "version": "1.0.0",
   "description": "Aplicação de gerenciamento de tarefas com CRUD completo e integração com banco de dados para salvar e organizar atividades.",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "nodemon sever.js",
+    "start": "nodemon src/server.js",
+    "dev": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
